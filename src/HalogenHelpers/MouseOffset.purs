@@ -1,6 +1,6 @@
-module Component.Common.MouseOffset where
+module HalogenHelpers.MouseOffset where
 
-import Component.Common.Coordinates (Coordinates, Offset, noOffset, subOffset)
+import HalogenHelpers.Coordinates (Coordinates, Offset, noOffset, subOffset)
 import Control.Monad (pure)
 import Data.Function (($))
 import Data.Int (toNumber)

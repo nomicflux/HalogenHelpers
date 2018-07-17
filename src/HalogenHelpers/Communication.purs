@@ -1,4 +1,4 @@
-module Component.Common.Communication where
+module HalogenHelpers.Communication where
 
 import Prelude
 

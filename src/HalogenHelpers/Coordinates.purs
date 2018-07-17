@@ -1,4 +1,4 @@
-module Component.Common.Coordinates where
+module HalogenHelpers.Coordinates where
 
 import Prelude ((+), (-))
 
