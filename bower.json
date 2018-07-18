@@ -3,6 +3,10 @@
   "homepage": "https://github.com/nomicflux/HalogenHelpers.git",
   "description": "Grabbag of helpers for working with Halogen webpages",
   "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nomicflux/HalogenHelpers.git"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
