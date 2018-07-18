@@ -1,5 +1,8 @@
 {
   "name": "halogen-helpers",
+  "homepage": "https://github.com/nomicflux/HalogenHelpers.git",
+  "description": "Grabbag of helpers for working with Halogen webpages",
+  "license": "BSD-3-Clause",
   "ignore": [
     "**/.*",
     "node_modules",
