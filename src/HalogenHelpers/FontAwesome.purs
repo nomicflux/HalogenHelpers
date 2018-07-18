@@ -1,4 +1,4 @@
-module HalogenHelpers.FontAwesome where
+module HalogenHelpers.FontAwesome ( icon ) where
 
 import Halogen.HTML as HH
 import Halogen.HTML.Properties as HP

@@ -1,4 +1,8 @@
-module HalogenHelpers.Communication where
+module HalogenHelpers.Communication ( passAlong
+                                    , passAlongTo
+                                    , getBack
+                                    , getBackFrom
+                                    ) where
 
 import Prelude
 

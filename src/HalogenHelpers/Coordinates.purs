@@ -1,4 +1,9 @@
-module HalogenHelpers.Coordinates where
+module HalogenHelpers.Coordinates ( Offset
+                                  , Coordinates
+                                  , noOffset
+                                  , subOffset
+                                  , addOffset
+                                  ) where
 
 import Prelude ((+), (-))
 

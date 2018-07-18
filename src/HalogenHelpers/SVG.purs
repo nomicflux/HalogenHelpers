@@ -1,4 +1,27 @@
-module HalogenHelpers.SVG where
+module HalogenHelpers.SVG ( svg
+                          , text
+                          , circle
+                          , rect
+                          , line
+                          , arc
+                          , circlePath
+                          , width
+                          , strokeWidth
+                          , height
+                          , viewBox
+                          , x
+                          , y
+                          , cx
+                          , cy
+                          , r
+                          , x1
+                          , y1
+                          , x2
+                          , y2
+                          , stroke
+                          , fill
+                          , class_
+                          ) where
 
 import Data.Array as A
 import Halogen.HTML (AttrName(..), ElemName(..), HTML, Namespace(..))

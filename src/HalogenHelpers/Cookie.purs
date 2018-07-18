@@ -1,4 +1,7 @@
-module HalogenHelpers.Cookie where
+module HalogenHelpers.Cookie ( setCookie
+                             , getCookie
+                             , removeCookie
+                             ) where
 
 import Data.Function.Uncurried (Fn2, runFn2)
 import Data.Maybe (Maybe)

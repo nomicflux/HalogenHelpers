@@ -1,4 +1,7 @@
-module HalogenHelpers.MouseOffset where
+module HalogenHelpers.MouseOffset ( getMaybeOffset
+                                  , getCoordinates
+                                  , getOffset
+                                  ) where
 
 import HalogenHelpers.Coordinates (Coordinates, Offset, noOffset, subOffset)
 import Control.Monad (pure)
