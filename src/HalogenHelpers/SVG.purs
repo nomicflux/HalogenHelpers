@@ -21,13 +21,25 @@ module HalogenHelpers.SVG ( svg
                           , stroke
                           , fill
                           , class_
+                          , toInt
+                          , class Numeric
                           ) where
 
 import Data.Array as A
+import Data.Int (round)
 import Halogen.HTML (AttrName(..), ElemName(..), HTML, Namespace(..))
 import Halogen.HTML.Elements (elementNS)
 import Halogen.HTML.Properties (IProp, attr)
-import Prelude (show, (<<<))
+import Prelude (show, (<<<), identity, class Show)
+
+class Numeric a where
+  toInt :: a -> Int
+
+instance numericNum :: Numeric Number where
+  toInt n = round n
+
+instance numericInt :: Numeric Int where
+  toInt = identity
 
 svgns :: String
 svgns = "http://www.w3.org/2000/svg"
@@ -77,43 +89,46 @@ circlePath fromx fromy radius tox toy =
   in
    attr (AttrName "d") path
 
-width :: forall r i. Int -> IProp (width :: Int | r) i
+width :: forall a r i. Numeric a => Show a => a -> IProp (width :: a | r) i
 width = attr (AttrName "width") <<< show
 
-strokeWidth :: forall r i. Int -> IProp (strokeWidth :: Int | r) i
+strokeWidth :: forall a r i. Numeric a => Show a => a -> IProp (strokeWidth :: a | r) i
 strokeWidth = attr (AttrName "stroke-width") <<< show
 
-height :: forall r i. Int -> IProp (height :: Int | r) i
+opacity :: forall a r i. Numeric a => Show a => a -> IProp (opacity :: a | r) i
+opacity = attr (AttrName "opacity") <<< show
+
+height :: forall a r i. Numeric a => Show a => a -> IProp (height :: a | r) i
 height = attr (AttrName "height") <<< show
 
 viewBox :: forall r i. String -> IProp (viewBox :: String | r) i
 viewBox = attr (AttrName "viewBox")
 
-x :: forall r i. Int -> IProp (x :: Int | r) i
+x :: forall a r i. Numeric a => Show a => a -> IProp (x :: a | r) i
 x = attr (AttrName "x") <<< show
 
-y :: forall r i. Int -> IProp (y :: Int | r) i
+y :: forall a r i. Numeric a => Show a => a -> IProp (y :: a | r) i
 y = attr (AttrName "y") <<< show
 
-cx :: forall r i. Int -> IProp (cx :: Int | r) i
+cx :: forall a r i. Numeric a => Show a => a -> IProp (cx :: a | r) i
 cx = attr (AttrName "cx") <<< show
 
-cy :: forall r i. Int -> IProp (cy :: Int | r) i
+cy :: forall a r i. Numeric a => Show a => a -> IProp (cy :: a | r) i
 cy = attr (AttrName "cy") <<< show
 
 r :: forall rty i. Int -> IProp (r :: Int | rty) i
 r = attr (AttrName "r") <<< show
 
-x1 :: forall r i. Int -> IProp (x1 :: Int | r) i
+x1 :: forall a r i. Numeric a => Show a => a -> IProp (x1 :: a | r) i
 x1 = attr (AttrName "x1") <<< show
 
-y1 :: forall r i. Int -> IProp (y1 :: Int | r) i
+y1 :: forall a r i. Numeric a => Show a => a -> IProp (y1 :: a | r) i
 y1 = attr (AttrName "y1") <<< show
 
-x2 :: forall r i. Int -> IProp (x2 :: Int | r) i
+x2 :: forall a r i. Numeric a => Show a => a -> IProp (x2 :: a | r) i
 x2 = attr (AttrName "x2") <<< show
 
-y2 :: forall r i. Int -> IProp (y2 :: Int | r) i
+y2 :: forall a r i. Numeric a => Show a => a -> IProp (y2 :: a | r) i
 y2 = attr (AttrName "y2") <<< show
 
 stroke :: forall r i. String -> IProp (stroke :: String | r) i
