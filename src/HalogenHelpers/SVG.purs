@@ -8,6 +8,7 @@ module HalogenHelpers.SVG ( svg
                           , width
                           , strokeWidth
                           , height
+                          , opacity
                           , viewBox
                           , x
                           , y
