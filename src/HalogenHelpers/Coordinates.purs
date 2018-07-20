@@ -5,7 +5,7 @@ module HalogenHelpers.Coordinates ( Offset
                                   , addOffset
                                   ) where
 
-import Prelude ((+), (-))
+import Prelude ((*), (+), (-))
 
 type Offset = { top :: Number
               , left :: Number
@@ -31,3 +31,8 @@ addOffset coordinates offset =
   { x: coordinates.x + offset.left
   , y: coordinates.y + offset.top
   }
+
+scale :: Number -> Coordinates -> Coordinates
+scale n coords = { x: coords.x * n
+                 , y: coords.y * n
+                 }
