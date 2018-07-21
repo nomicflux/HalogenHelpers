@@ -3,6 +3,7 @@ module HalogenHelpers.Coordinates ( Offset
                                   , noOffset
                                   , subOffset
                                   , addOffset
+                                  , scale
                                   ) where
 
 import Prelude ((*), (+), (-))
