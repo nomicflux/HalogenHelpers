@@ -29,8 +29,8 @@ module HalogenHelpers.SVG ( svg
 import Data.Array as A
 import Data.Int (round)
 import Data.Tuple (Tuple)
-import Halogen.HTML (AttrName(..), ElemName(..), HTML, Namespace(..))
-import Halogen.HTML.Elements (keyedNS)
+import Halogen.HTML (AttrName(..), ElemName(..), HTML, Namespace(..), keyedNS)
+import Halogen.HTML.Elements (elementNS)
 import Halogen.HTML.Properties (IProp, attr)
 import Prelude (show, (<<<), identity, class Show)
 
@@ -49,14 +49,16 @@ svgns = "http://www.w3.org/2000/svg"
 svgNamespace :: Namespace
 svgNamespace = Namespace svgns
 
-svgElement :: forall r p i. ElemName -> Array (IProp r i) ->
-              Array (Tuple String (HTML p i)) -> HTML p i
-svgElement = keyedNS svgNamespace
+svgElement :: forall r p i. ElemName -> Array (IProp r i) -> Array (HTML p i) -> HTML p i
+svgElement = elementNS svgNamespace
 
-svg :: forall r p i. Array (IProp r i) -> Array (Tuple String (HTML p i)) -> HTML p i
+keyedSvgElement :: forall r p i. ElemName -> Array (IProp r i) -> Array (Tuple String (HTML p i)) -> HTML p i
+keyedSvgElement = keyedNS svgNamespace
+
+svg :: forall r p i. Array (IProp r i) -> Array (HTML p i) -> HTML p i
 svg = svgElement (ElemName "svg")
 
-text :: forall r p i. Array (IProp r i) -> Array (Tuple String (HTML p i)) -> HTML p i
+text :: forall r p i. Array (IProp r i) -> Array (HTML p i) -> HTML p i
 text = svgElement (ElemName "text")
 
 circle :: forall r p i. Array (IProp r i) -> HTML p i
