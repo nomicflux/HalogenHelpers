@@ -32,28 +32,11 @@ import Data.Tuple (Tuple)
 import Halogen.HTML (AttrName(..), ElemName(..), HTML, Namespace(..), keyedNS)
 import Halogen.HTML.Elements (elementNS)
 import Halogen.HTML.Properties (IProp, attr)
+import HalogenHelpers.SVG.Internal (class Numeric, svgNamespace)
 import Prelude (show, (<<<), identity, class Show)
-
-class Numeric a where
-  toInt :: a -> Int
-
-instance numericNum :: Numeric Number where
-  toInt n = round n
-
-instance numericInt :: Numeric Int where
-  toInt = identity
-
-svgns :: String
-svgns = "http://www.w3.org/2000/svg"
-
-svgNamespace :: Namespace
-svgNamespace = Namespace svgns
 
 svgElement :: forall r p i. ElemName -> Array (IProp r i) -> Array (HTML p i) -> HTML p i
 svgElement = elementNS svgNamespace
-
-keyedSvgElement :: forall r p i. ElemName -> Array (IProp r i) -> Array (Tuple String (HTML p i)) -> HTML p i
-keyedSvgElement = keyedNS svgNamespace
 
 svg :: forall r p i. Array (IProp r i) -> Array (HTML p i) -> HTML p i
 svg = svgElement (ElemName "svg")
