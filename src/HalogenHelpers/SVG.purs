@@ -22,18 +22,14 @@ module HalogenHelpers.SVG ( svg
                           , stroke
                           , fill
                           , class_
-                          , toInt
-                          , class Numeric
                           ) where
 
 import Data.Array as A
-import Data.Int (round)
-import Data.Tuple (Tuple)
-import Halogen.HTML (AttrName(..), ElemName(..), HTML, Namespace(..), keyedNS)
+import Halogen.HTML (AttrName(..), ElemName(..), HTML)
 import Halogen.HTML.Elements (elementNS)
 import Halogen.HTML.Properties (IProp, attr)
 import HalogenHelpers.SVG.Internal (class Numeric, svgNamespace)
-import Prelude (show, (<<<), identity, class Show)
+import Prelude (show, class Show, (<<<))
 
 svgElement :: forall r p i. ElemName -> Array (IProp r i) -> Array (HTML p i) -> HTML p i
 svgElement = elementNS svgNamespace
