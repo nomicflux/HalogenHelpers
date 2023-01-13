@@ -1,12 +1,12 @@
-exports.getScrollTop = function () {
+function getScrollTop() {
     return (window.pageYOffset || document.documentElement.scrollTop);
 }
 
-exports.getScrollLeft = function () {
+function getScrollLeft() {
     return (window.pageXOffset || document.documentElement.scrollLeft);
 }
 
-exports.getOffset = function ( el ) {
+function getOffset( el ) {
     return function() {
         var x = 0;
         var y = 0;
@@ -15,3 +15,5 @@ exports.getOffset = function ( el ) {
         return { top: y, left: x };
     };
 }
+
+export { getScrollTop, getScrollLeft, getOffset };

@@ -1,12 +1,12 @@
 "use strict";
 
-exports.setCookieImpl = function (name, value) {
+function setCookieImpl(name, value) {
     return function() {
         Cookies.set(name, value);
     };
 }
 
-exports.getCookieImpl = function (name) {
+function getCookieImpl(name) {
     return function() {
         var result = Cookies.getJSON(name);
         if (result)  {
@@ -17,8 +17,10 @@ exports.getCookieImpl = function (name) {
     };
 }
 
-exports.removeCookieImpl = function(name) {
+function removeCookieImpl(name) {
     return function() {
         Cookies.remove(name);
     }
 }
+
+export { setCookieImpl, getCookieImpl, removeCookieImpl };
